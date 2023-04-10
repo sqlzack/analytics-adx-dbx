@@ -9,4 +9,6 @@ This Repo is meant to detail the steps to use Azure Data Factory, Azure Data Exp
    
 ## Steps
 1) Deploy Resources using Visual Studio Code
-2) 
+2) Deploy Bastion using Logic App
+3) Set up Self Hosted Integration Runtime and Streaming Server
+4) 
