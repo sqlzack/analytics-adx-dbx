@@ -4,12 +4,12 @@
 ```
 wsl --install
 ```
-1) Reboot server. You can stay connected to Bastion and wait for it to come back up.
+2) Reboot server. You can stay connected to Bastion and wait for it to come back up.
 ```
 shutdown -r
 ```
-1) After restarting, wait for Ubuntu to install.
-2) Set your username and password for Linux. Once you've done this you should be able to open up Ubuntu from the Start Menu
+3) After restarting, wait for Ubuntu to install.
+4) Set your username and password for Linux. Once you've done this you should be able to open up Ubuntu from the Start Menu
 
 ## Download Sample File
 
@@ -31,5 +31,28 @@ sudo apt-get update
 2) Run the below command to install Docker
 ```
 sudo apt-get install docker
+sudo apt-get install docker.io
+sudo apt-get install podman-docker
 ```
-3) 
+3) Pull the repository contents
+```
+git clone https://github.com/sqlzack/analytics-adx-dbx.git /mnt/c/repo/analytics-adx-dbx
+```
+4) Switch to the directory containing the Dockerfile, which we'll use to build our docker image.
+```
+cd /mnt/c/repo/analytics-adx-dbx/code/docker/
+```
+5) Build the Dockerfile (This may take a moment)
+```
+docker build -t eventstream .
+```
+
+## Set up and run Stream
+
+1) In Windows Explorer, navigate to C:\repo\analytics-adx-dbx\code\docker.
+2) Open the main.env file in notepad.
+3) Modify the FARE_EVENTH_HUB_CONNSTR= line and paste in the with the Shared Access Policy Primary Key Connection string which can be found in the portal **to do - fix this**. Save the text file.
+4) Run the below command in Ubuntu to send the sample file through event hubs.
+```
+docker run -v /mnt/c/rawfiles/faredata/:/FareData --env-file main.env eventstream:latest
+```
