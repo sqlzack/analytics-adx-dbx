@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "eastus"
+    },
+    "adminUsername": {
+      "value": "sqladminuser"
+    },
+    "vmName": {
+      "value": "ShirVM"
+    },
+    "OSVersion": {
+      "value": "2022-datacenter-azure-edition"
+    },
+    "vmSize": {
+      "value": "Standard_D2s_v5"
+    },
+    "eventHubNamespaceName": {
+      "value": "az-lakehouse-evthub"
+    },
+    "bastionHostName": {
+      "value": "shirBastionHost"
+    },
+    "bastionPublicIpName": {
+      "value": "shirBastionPublicIp"
+    },
+    "logicAppCreateBastionName": {
+      "value": "az-lakehouse-la-createBastion"
+    },
+    "logicAppDeleteBastionName": {
+      "value": "az-lakehouse-la-deleteBastion"
+    },
+    "storageAccountName": {
+      "value": "azlakehousesa202304060"
+    },
+    "dataExplorerResourceName": {
+      "value": "azlakehouseadx001"
+    },
+    "keyVaultName": {
+      "value": "az-lakehouse-akv"
+    },
+    "adfFactoryName": {
+      "value": "az-lakehouse-adf"
+    },
+    "databricksWorkspaceName": {
+      "value": "az-lakehouse-dbx"
+    }
+  }
+}

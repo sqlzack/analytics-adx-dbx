@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "bastionSubnetResourceId": {
+      "value": ""
+    },
+    "logicAppName": {
+      "value": "zmLogicAppTest20230405"
+    },
+    "bastionName": {
+      "value": "synshirbastion"
+    },
+    "publicIpResourceId":{
+      "value": "/subscriptions/4e20a691-99e7-4719-8619-38ea8735fc23/resourceGroups/zm-analytics-dev/providers/Microsoft.Network/publicIPAddresses/bastionPublicIp"
+    }
+    ,
+    "bastionSubnetResourceId":{
+      "value": "/subscriptions/4e20a691-99e7-4719-8619-38ea8735fc23/resourceGroups/zm-analytics-dev/providers/Microsoft.Network/virtualNetworks/shirVmVnet/subnets/AzureBastionSubnet"
+    }
+  }
+}
