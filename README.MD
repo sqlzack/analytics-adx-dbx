@@ -1,3 +1,5 @@
+![](./docs/allUpArch.png)
+
 ## Repo Descripiton
 ___
 
