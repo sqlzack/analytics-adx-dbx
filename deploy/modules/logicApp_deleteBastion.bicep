@@ -21,7 +21,7 @@ var type = 'recurrence'
 var actionType = 'http'
 var method = 'DELETE'
 var workflowSchema = 'https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#'
-var deleteUri = 'https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${rg}/providers/Microsoft.Network/bastionHosts/${bastionName}/?api-version=2020-06-01'
+var deleteUri = 'https://management.azure.com${subscriptionId}/resourceGroups/${rg}/providers/Microsoft.Network/bastionHosts/${bastionName}/?api-version=2020-06-01'
 
 resource r_LogicApp 'Microsoft.Logic/workflows@2019-05-01' = {
   name: logicAppName
