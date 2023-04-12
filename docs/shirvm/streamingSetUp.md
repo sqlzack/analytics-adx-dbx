@@ -1,4 +1,18 @@
+## Log into Bastion Host
+___
+1)  Go to the Azure Portal and the Virtual Machine resource deployed in previous steps.
+2)  On the Overview screen click Connect and select Bastion
+
+      ![](./images/vmSetup01.png)
+3) On the subsequent screen either manually input the Virtual Machine Username and Password as defined on deployment or use the Azure Key Vault Secret created in previous steps.
+
+
+      ![](./images/vmSetup02.png)
+4) This should open up a new browser window with your VM. If prompted to allow clipboard access you should allow as you'll likely be pasting text into Bastion in a future step.
+
+
 ## Install Ubuntu in Windows Subsystem for Linux
+___
 1) Open command line by going to the Start Menu>Run>cmd
 2) Install WSL
 ```
@@ -12,7 +26,7 @@ shutdown -r
 4) Set your username and password for Linux. Once you've done this you should be able to open up Ubuntu from the Start Menu
 
 ## Download Sample File
-
+___
 1) In Ubuntu, create a storage location for raw files.
 ```
 mkdir /mnt/c/rawfiles/faredata
@@ -21,18 +35,16 @@ mkdir /mnt/c/rawfiles/faredata
 ```
 wget https://raw.githubusercontent.com/sqlzack/eh-adx-adls-analytics/main/data/sample.csv -O /mnt/c/rawfiles/faredata/sample.csv
 ```
-3) 
 
 ## Install Docker and Pull Image
+___
 1) In the Ubuntu prompt, upgrade package lists by running the below command.
 ```
 sudo apt-get update
 ```
 2) Run the below command to install Docker
 ```
-sudo apt-get install docker
-sudo apt-get install docker.io
-sudo apt-get install podman-docker
+sudo apt-get install docker docker.io podman-docker
 ```
 3) Pull the repository contents
 ```
@@ -48,7 +60,7 @@ docker build -t eventstream .
 ```
 
 ## Set up and run Stream
-
+___
 1) In Windows Explorer, navigate to C:\repo\analytics-adx-dbx\code\docker.
 2) Open the main.env file in notepad.
 3) Modify the FARE_EVENTH_HUB_CONNSTR= line and paste in the with the Shared Access Policy Primary Key Connection string which can be found in the portal **to do - fix this**. Save the text file.

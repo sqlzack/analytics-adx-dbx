@@ -25,8 +25,8 @@ __ADLS:__ Azure Data Lake Storage
 ___
 1) __VSCode:__ [Deploy Resources](./docs/bicep/deploy.md)
 2) __Logic Apps:__ [Manage Azure Bastion with Logic Apps](./docs/logicapps/setUpBastionLogicApps.md)
-3) __VM:__ Create Self Hosted Integration Runtime service.
-4) __VM:__ [Set up Docker container for Streaming dataset from SHIR server](./docs/shirvm/streamingSetUp.md)
+3) __VM:__ [Set up Docker container for Streaming dataset from SHIR server](./docs/shirvm/streamingSetUp.md)
+4) __VM:__ [Create Self Hosted Integration Runtime service.](./docs/shirvm/batchSetUp.md)
 5) __ADF:__ Set up Linked Services and Copy Pipelines in Azure Data Factory
 6) __ADX:__ Set up Ingestion Streams
 7) __ADX:__ Set up Continuous Export to ADLS
