@@ -14,16 +14,19 @@ ___
 ## Install Ubuntu in Windows Subsystem for Linux
 ___
 1) Open command line by going to the Start Menu>Run>cmd
+
+    ![](./images/opencmd.gif)
+
 2) Install WSL
 ```
 wsl --install
 ```
-2) Reboot server. You can stay connected to Bastion and wait for it to come back up.
+1) Reboot server. You can stay connected to Bastion and wait for it to come back up.
 ```
 shutdown -r
 ```
-3) After restarting, wait for Ubuntu to install.
-4) Set your username and password for Linux. Once you've done this you should be able to open up Ubuntu from the Start Menu
+1) After restarting, wait for Ubuntu to install.
+2) Set your username and password for Linux. Once you've done this you should be able to open up Ubuntu from the Start Menu
 
 ## Download Sample File
 ___
