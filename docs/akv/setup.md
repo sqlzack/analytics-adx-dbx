@@ -7,19 +7,19 @@ The steps are to set up the integration between Azure Key Vault and Azure Data F
 1) Go to the Azure Portal and the Azure Key Vault resource deployed in previous steps.
 2) Go into Access policies and click to create a new policy.
 
-    ![](./images/addPolicy01.png)
+    ![](./images/createAccessPolicy01.gif)
 
 3) On the permissions screen choose the "Secret Management" template.
 
-    ![](./images/addPolicy02.png)
+    ![](./images/createAccessPolicy02.gif)
 
-4) On the next screen we'll be choosing to the Managed Identity representing our Azure Data Factory access as a Principal capable of Secret Management.
+4) Search for the name of your Azure Data Factory Resource and select it.
 
-    ![](./images/addPolicy03.png)
+    ![](./images/createAccessPolicy03.gif)
 
 5) Click through the following two screens confirming that you are adding this principal and watch the top right corner of the Azure Portal for a notification affirming creation  of the permission.
 
-    ![](./images/addPolicy04.png)
+    ![](./images/createAccessPolicy04.gif)
 
 6) Repeat steps 1-5 for your user so you can add Secrets to be used in later processes.
 
