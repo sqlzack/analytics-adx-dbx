@@ -3,13 +3,21 @@
 ## Repo Descripiton
 ___
 
-This Repo is meant to detail the steps to use Azure Data Factory, Azure Data Explorer, Azure Databricks, and Azure Databricks to create an Architecture that supports both Batch and Streaming use cases in a user-friendly environment. 
+This Repo is meant to detail the steps to use Azure Data Factory, Azure Data Explorer, Azure Databricks, and Azure Event Hubs to create an Architecture that supports both Batch and Streaming use cases. The primary area for consuming data produced in this process will be Azure Data Lake Gen2 hence the Lakehouse architecture.
 
 ## Pre-Requisites
 ___
-1) A sandbox Resource Group in Azure with Contributor Access for all users deploying and using the Proof of Concept.
-2) Unity Catalog (and Access Connector) set up for use in Azure Databricks.
-3) The necessary resource providers for the Data Factory, Event Hubs, Key Vault, and Kusto.
+1) An **empty** sandbox Resource Group in Azure. To reduce the number of parameters for deployment, the resources that only enforce unique naming at the Resource Group level were given default names. More on naming requirements [here](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules).
+2) [Contributor](https://learn.microsoft.com/en-us/azure/role-based-access-control/quickstart-assign-role-user-portal) Access to the empty Resource Group.
+3) Unity Catalog (and Access Connector) set up for use in Azure Databricks.
+4) The below Resource Providers are [registered](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider) for the subscription being used.
+   - Microsoft.Compute
+   - Microsoft.DataFactory
+   - Microsoft.Databricks
+   - Microsoft.EventHub
+   - Microsoft.Kusto
+   - Microsoft.Network
+   - Microsoft.Storage
 
 ## Acronyms
 ____
@@ -24,14 +32,15 @@ __ADLS:__ Azure Data Lake Storage
 ## Steps
 ___
 1) __VSCode:__ [Deploy Resources](./docs/bicep/deploy.md)
-2) __Logic Apps:__ [Manage Azure Bastion with Logic Apps](./docs/logicapps/setUpBastionLogicApps.md)
-3) __VM:__ [Set up Docker container for Streaming dataset from SHIR server](./docs/shirvm/streamingSetUp.md)
-4) __VM:__ [Create Self Hosted Integration Runtime service.](./docs/shirvm/batchSetUp.md)
-5) __ADF:__ Set up Linked Services and Copy Pipelines in Azure Data Factory
-6) __ADX:__ Set up Ingestion Streams
-7) __ADX:__ Set up Continuous Export to ADLS
-8) __Databricks:__ Set up connection to Raw storage in Azure Databricks Unity Catalog
-9) __Databricks:__ Create a notebook to bring data to the Bronze layer
-10) __Databricks:__ Create SQL Scripts to bring data through the Silver and Gold layers
-11) __Databricks:__ Create a Workflow to Automate Medallion load
-12) 
+2) __Key Vault:__ [Set up Pre-Requesite Secrets](./docs/akv/setup.md)
+3) __Logic Apps:__ [Manage Azure Bastion with Logic Apps](./docs/logicapps/setUpBastionLogicApps.md)
+4) __VM:__ [Set up Docker container for Streaming dataset](./docs/shirvm/streamingSetUp.md)
+5) __VM:__ [Create Self Hosted Integration Runtime service for Batch dataset](./docs/shirvm/batchSetUp.md)
+6) __ADF:__ Set up Linked Services and Copy Pipelines in Azure Data Factory
+7) __ADX:__ Set up Ingestion Streams
+8) __ADX:__ Set up Continuous Export to ADLS
+9) __Databricks:__ Set up connection to Raw storage in Azure Databricks Unity Catalog
+10) __Databricks:__ Create a notebook to bring data to the Bronze layer
+11) __Databricks:__ Create SQL Scripts to bring data through the Silver and Gold layers
+12) __Databricks:__ Create a Workflow to Automate Medallion load
+13) 
