@@ -89,10 +89,9 @@ for csvFile in csvFiles:
         count +=1
 
         line = openFile.readline().strip()
-        # header = "medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount"
 
         # I guarantee there's a more elegant way to do this. However, I want to control the number of lines going through and how they are shaped.
-        if line.startswith("medallion") == False:
+        if line.startswith("medallion") == False and line != '':
             splitLine       = line.split(",")
             buildJsonString = "{"
             buildJsonString = f"{buildJsonString}\"medallion\":\"{splitLine[0]}\","
@@ -131,8 +130,21 @@ for csvFile in csvFiles:
 
         if not line:
             break
+
+    # Send remaining lines to event hubs since not all files will show a remainder of 0 when dividing by 3500
+    if count % 3500 != 0:
+        try:
+            if __name__ == "__main__":
+                try:
+                    asyncio.run(
+                        main(lineList)
+                    )
+                except KeyboardInterrupt:
+                    pass
+        except Exception as e:
+            print(f"Batch {count} in file {csvFile} failed to send to Event Hubs")
+            print(e)
+        finally:                
+            lineList = []
+
     openFile.close()
-
-
-
-

@@ -46,7 +46,12 @@ ___
     ```
     git clone https://github.com/sqlzack/analytics-adx-dbx.git /mnt/c/repo/analytics-adx-dbx
     ```
-3) Move the Sample Data Files to their 
+3) Move the Sample Data Files to their Source Paths by running the commands below.
+    ```
+    cp /mnt/c/repo/analytics-adx-dbx/data/trip_data_smol.csv /mnt/c/rawfiles/tripdata/
+
+    cp /mnt/c/repo/analytics-adx-dbx/data/fare_data_smol.csv /mnt/c/rawfiles/faredata/
+    ```
 
 ## Install Docker and Pull Image
 ___
