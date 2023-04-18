@@ -16,6 +16,7 @@ ___
    - Microsoft.Databricks
    - Microsoft.EventHub
    - Microsoft.Kusto
+   - Microsoft.Logic
    - Microsoft.Network
    - Microsoft.Storage
 
@@ -32,7 +33,7 @@ __ADLS:__ Azure Data Lake Storage
 ## Steps
 ___
 1) __VSCode:__ [Deploy Resources](./docs/bicep/deploy.md)
-2) __Key Vault:__ [Set up Pre-Requesite Secrets](./docs/akv/setup.md)
+2) __Key Vault:__ [Set up Pre-Requisite Secrets](./docs/akv/setup.md)
 3) __Logic Apps:__ [Manage Azure Bastion with Logic Apps](./docs/logicapps/setUpBastionLogicApps.md)
 4) __VM:__ [Set up Docker container for Streaming dataset](./docs/shirvm/streamingSetUp.md)
 5) __VM:__ [Create Self Hosted Integration Runtime service for Batch dataset](./docs/shirvm/batchSetUp.md)

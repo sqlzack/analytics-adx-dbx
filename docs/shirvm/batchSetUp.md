@@ -29,20 +29,7 @@ A Self Hosted Integration Runtime differentiates itself from a regular Azure Int
 
 9) Return to ADF and refresh your integration runtimes. Your Self Hosted Integration Runtime should now have the status of "Running".
 
-#### Create a Share
-1) Open File Explorer on the VM and navigate to the C:\ drive.
-2) Create a directory on C:\ called shareFolder
-3) Right click on the newly created directory and select Properties.
-4) In the Properties window select the Sharing tab and click Share.
 
-      ![](./images/shareSetup01.png)
-
-5) Ensure your Admin user is included in the share list and click Share.
-6) Do **NOT** turn on network discovery and file sharing at the next prompt.
-7) Click done to complete setting up the share.
-8) Once complete, right click to go into Properties for shareFolder again and you should be able to view the network path of your share. This will be used in later steps.
-
-      ![](./images/shareSetup02.png)
 
 #### Put Sample Files in Share
 1) On the VM, [open the repository](https://github.com/sqlzack/shir-pipeline-adls/) you're currently viewing.
