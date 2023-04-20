@@ -1,42 +1,36 @@
-## Configuring Virtual Machine to Host SHIR and Data
+## Create Self Hosted Integration Runtime service for Batch dataset
 ### Summary
 A Self Hosted Integration Runtime differentiates itself from a regular Azure Integration Runtime in Azure Data Factory by requiring infrastructure to be manually provisioned to host it. The steps in this walkthough serve as a guide to connect the Azure Data Factory resource to the Virtual Machine host. Also, you'll download some data to the host to be used in data loading and transformation exercises in ADF.
     
 ###  Steps
 #### Download Integration Runtime and Configure 
-1) Open your VM per the instructions in the Bastion guide. 
+1) Open your VM per the instructions in the [Streaming guide](./streamingSetUp.md). 
 2) Once in your VM, open up the Edge browser and follow this [link](https://www.microsoft.com/en-us/download/details.aspx?id=39717) to download the Integration Runtime Setup to your VM. (Choose the newest version available)
 3) After the download has completed, run the Setup and install it to the default location. Once the Setup is complete, the below screen should show up.
 
       ![](./images/shirSetup01.png)
 
-4) Go to [adf.azure.com](adf.azure.com) in and follow the path below to bring up the Self Hosted Integration Runtime settings. *Note: The next step may be able to be performed on the VM if there are not machine certificate policies required to log in using Azure Active Directory. If not, use the browser on your local machine.*
+#### Create Integration Runtime in ADF
+1) Open adf.azure.com and select the Data Factory deployed with the Resource Group used in this Proof of Concept.
+2) Follow the steps below to add a Self Hosted Integration Runtime.
+   
+    ![](../adf/images/adfshir.gif)
 
-      ![](./images/shirSetup02.png)
+3) Follow the steps below to retreive a key to paste into the Self Hosted Integration Runtime application created on the Virtual Machine.
 
-5) Copy the key for use in manual set up as shown in the Screenshot below.
+      ![](../adf/images/getShirKey.gif)
 
-      ![](./images/shirSetup03.png)
 
-6) Return to the VM and the Integration Runtime Configuration Manager, paste the Authentication Key into the dialog box, and click Register. *If the Integration Runtime Configuration Manager is minimized, check your system tray*
+#### Finish Runtime Setup on VM
+1) Return to the VM and the Integration Runtime Configuration Manager, paste the Authentication Key into the dialog box, and click Register. *If the Integration Runtime Configuration Manager is minimized, check your system tray*
 
       ![](./images/shirSetup04.png)
 
-7) On the next screen, review your Integration Runtime node name and click Finish.
-8) Give the integration runtime a bit to initialize and you should receive the below message in the Integration Runtime Configuration Manager
+2) On the next screen, review your Integration Runtime node name and click Finish.
+3) Give the integration runtime a bit to initialize and you should receive the below message in the Integration Runtime Configuration Manager
 
       ![](./images/shirSetup05.png)
 
-9) Return to ADF and refresh your integration runtimes. Your Self Hosted Integration Runtime should now have the status of "Running".
-
-
-
-#### Put Sample Files in Share
-1) On the VM, [open the repository](https://github.com/sqlzack/shir-pipeline-adls/) you're currently viewing.
-2) Click on <>Code and download a zip of the repository to the Virtual Machine. 
-
-      ![](./images/sampleFile01.png)
-
-3) Once the download is complete, extract the zip, navigate to the data directory, and locate sample.csv.
-4) Copy sample.csv from the downloaded repository directory to a new directory called tripdata in C:\shareFolder.
-   
+#### Verify Runtime is working in ADF
+1) Return to ADF and refresh your integration runtimes. Your Self Hosted Integration Runtime should now have the status of "Running".
+      ![](../adf/images/checkSHIR.png)

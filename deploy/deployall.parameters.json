@@ -33,7 +33,7 @@
       "value": "az-lakehouse-la-deleteBastion"
     },
     "storageAccountName": {
-      "value": "azlakehousesa202304060"
+      "value": "azlakehousesa20230418"
     },
     "dataExplorerResourceName": {
       "value": "azlakehouseadx001"

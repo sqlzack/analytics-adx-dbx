@@ -32,7 +32,7 @@ ___
     wsl --install
     ```
 
-2) WSL will require a restart to finish the install. Run the below command to initiate the restart.
+2) WSL will require a restart to finish the install. Run the below command to initiate the restart. You can stay connected to Bastion until the VM comes back up. Bastion will reconnect on its own.
     ```
     shutdown -r
     ```
@@ -61,7 +61,7 @@ ___
     ```
 2) Run the below command to install Docker
     ```
-    sudo apt-get install docker docker.io podman-docker
+    sudo apt-get install docker podman-docker
     ```
 
 4) Switch to the directory containing the Dockerfile, which we'll use to build our docker image.
@@ -75,10 +75,22 @@ ___
 
 ## Set up and run Stream
 ___
-1) In Windows Explorer, navigate to C:\repo\analytics-adx-dbx\code\docker.
-2) Open the main.env file in notepad.
-3) Modify the FARE_EVENTH_HUB_CONNSTR= line and paste in the with the Shared Access Policy Primary Key Connection string which can be found in the portal **to do - fix this**. Save the text file.
-4) Run the below command in Ubuntu to send the sample file through event hubs.
+1) In Windows File Explorer, navigate to C:\repo\analytics-adx-dbx\code\docker.
+2) Open the main.env file in notepad. It should look like the below.
+```
+FARE_DATA_PATH=./FareData
+FARE_EVENTH_HUB_CONNSTR=
+FARE_EVENT_HUB_NAME=taxi-fare-eh
+```
+3) Go to [portal.azure.com](portal.azure.com) and the Event Hubs resource. Follow the steps below to copy the Event Hub Connection String 
+
+    ![](../eventhubs/images/retreiveSharedAccessPolicyKey.gif)
+
+4) Paste the copied connection string into the FARE_EVENTH_HUB_CONNSTR Evnironment Variable after the = sign.
+5) Run the below command in Ubuntu (make sure you're in the /mnt/c/repo/analytics-adx-dbx/code/docker/ directory) to send the sample file through event hubs.
     ```
     docker run -v /mnt/c/rawfiles/faredata/:/FareData --env-file main.env eventstream:latest
     ```
+6) Return to your Event Hubs resource in the Azure Portal and ensure that messages are flowing through on the Overview page.
+
+    ![](../eventhubs/images/checkStatus.png)

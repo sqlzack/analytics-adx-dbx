@@ -1,0 +1,59 @@
+{
+    "name": "ls_onpremfs",
+    "type": "Microsoft.DataFactory/factories/linkedservices",
+    "properties": {
+        "type": "FileServer",
+        "parameters": {
+            "hostDirectory": {
+                "type": "string"
+            },
+            "keyVaultName": {
+                "type": "string"
+            },
+            "passwordSecretName": {
+                "type": "string"
+            },
+            "usernameSecretName": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "typeProperties": {
+            "host": "@{linkedService().hostDirectory}",
+            "userId": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "ls_keyvault",
+                    "type": "LinkedServiceReference",
+                    "parameters": {
+                        "keyVaultName": {
+                            "value": "@linkedService().keyVaultName",
+                            "type": "Expression"
+                        }
+                    }
+                },
+                "secretName": {
+                    "value": "@linkedService().usernameSecretName",
+                    "type": "Expression"
+                }
+            },
+            "password": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "ls_keyvault",
+                    "type": "LinkedServiceReference",
+                    "parameters": {
+                        "keyVaultName": {
+                            "value": "@linkedService().keyVaultName",
+                            "type": "Expression"
+                        }
+                    }
+                },
+                "secretName": {
+                    "value": "@linkedService().passwordSecretName",
+                    "type": "Expression"
+                }
+            }
+        }
+    }
+}

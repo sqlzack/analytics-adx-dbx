@@ -1,0 +1,62 @@
+{
+    "name": "ds_onpremfs_binary",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "ls_onpremfs",
+            "type": "LinkedServiceReference",
+            "parameters": {
+                "hostDirectory": {
+                    "value": "@dataset().hostDirectory",
+                    "type": "Expression"
+                },
+                "keyVaultName": {
+                    "value": "@dataset().keyVaultName",
+                    "type": "Expression"
+                },
+                "passwordSecretName": {
+                    "value": "@dataset().passwordSecretName",
+                    "type": "Expression"
+                },
+                "usernameSecretName": {
+                    "value": "@dataset().usernameSecretName",
+                    "type": "Expression"
+                }
+            }
+        },
+        "parameters": {
+            "hostDirectory": {
+                "type": "string"
+            },
+            "keyVaultName": {
+                "type": "string"
+            },
+            "passwordSecretName": {
+                "type": "string"
+            },
+            "usernameSecretName": {
+                "type": "string"
+            },
+            "fileDirectory": {
+                "type": "string"
+            },
+            "fileName": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "type": "Binary",
+        "typeProperties": {
+            "location": {
+                "type": "FileServerLocation",
+                "fileName": {
+                    "value": "@dataset().fileName",
+                    "type": "Expression"
+                },
+                "folderPath": {
+                    "value": "@dataset().fileDirectory",
+                    "type": "Expression"
+                }
+            }
+        }
+    }
+}

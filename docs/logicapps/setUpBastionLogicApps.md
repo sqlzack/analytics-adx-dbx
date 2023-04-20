@@ -36,7 +36,7 @@ We will deploy two Logic Apps to support this cost saving measure.
 1) Open the logicApp-deleteBastion Logic App resource in the Azure Portal.
 2) Go to Logic App Designer and set the delete time to the time that best works with your Work Schedule. Save once done.
 
-    ![](./images/setUpBastionLogicApps04.png)
+    ![](./images/setRecurrence.gif)
 
 3) If you want to keep your Bastion host running 24x7, this Logic App can be disabled in the Logic App Overview.
 

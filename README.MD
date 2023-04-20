@@ -37,11 +37,12 @@ ___
 3) __Logic Apps:__ [Manage Azure Bastion with Logic Apps](./docs/logicapps/setUpBastionLogicApps.md)
 4) __VM:__ [Set up Docker container for Streaming dataset](./docs/shirvm/streamingSetUp.md)
 5) __VM:__ [Create Self Hosted Integration Runtime service for Batch dataset](./docs/shirvm/batchSetUp.md)
-6) __ADF:__ Set up Linked Services and Copy Pipelines in Azure Data Factory
-7) __ADX:__ Set up Ingestion Streams
-8) __ADX:__ Set up Continuous Export to ADLS
-9) __Databricks:__ Set up connection to Raw storage in Azure Databricks Unity Catalog
-10) __Databricks:__ Create a notebook to bring data to the Bronze layer
-11) __Databricks:__ Create SQL Scripts to bring data through the Silver and Gold layers
-12) __Databricks:__ Create a Workflow to Automate Medallion load
-13) 
+6) __ADLS:__ [Prepare storage for ADF and ADX](./docs/adls/setUp.md)
+7) __ADF:__ [Set up Linked Services and Global Parameters](./docs/adf/linkedServices.md)
+8) __ADX:__ Set up Ingestion Streams
+9) __ADX:__ Set up Continuous Export to ADLS
+10) __Databricks:__ Set up connection to Raw storage in Azure Databricks Unity Catalog
+11) __Databricks:__ Create a notebook to bring data to the Bronze layer
+12) __Databricks:__ Create SQL Scripts to bring data through the Silver and Gold layers
+13) __Databricks:__ Create a Workflow to Automate Medallion load
+14) 
