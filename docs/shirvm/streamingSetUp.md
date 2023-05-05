@@ -44,7 +44,7 @@ ___
 1) Open Ubuntu from the Start Menu
 2) Pull the repository contents
     ```
-    git clone https://github.com/sqlzack/analytics-adx-dbx.git /mnt/c/repo/analytics-adx-dbx
+    sudo git clone https://github.com/sqlzack/analytics-adx-dbx.git /mnt/c/repo/analytics-adx-dbx
     ```
 3) Move the Sample Data Files to their Source Paths by running the commands below.
     ```

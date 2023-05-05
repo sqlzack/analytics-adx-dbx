@@ -1,0 +1,38 @@
+// Create table
+.create table adfMetadata(processType:string,processSubType:string, processName:string, dateCreated:datetime, processConfigValues:dynamic)
+
+//Insert scripts for top-level copyData process. No changes needed to base script.
+.set-or-append adfMetadata <|
+let pType = "copyData";
+let pSubType = "onprem2adls";
+let pName = "tripdata";
+let insertTime = now();
+let pConfig = dynamic({"sourceDataset":"onpremTripData","sinkDataset":"adlsTripData"});
+print pType,pSubType, pName, insertTime, pConfig 
+
+//Insert script to hold metadata required to run a Copy Data Task associated with the ds_datalake_binary dataset
+//IMPORTANT: Make sure to change the value of the storageAccountName to the Storage Account in your Resource Group
+.set-or-append  adfMetadata <|
+let pType = "copyDataset";
+let pSubType = "ds_datalake_binary";
+let pName = "adlsTripData";
+let insertTime = now();
+let storageAccountName = "yourstoragename";
+let configJSON = strcat('{"storageAccountName":"',storageAccountName,'","container":"rawdatabatch","fileDirectory":"nyctaxi/faredata"}');
+let pConfig = parse_json(configJSON);
+print pType,pSubType, pName, insertTime, pConfig
+
+//Insert script to hold metadata required to run a Copy Data Task associated with the ds_onpremfs_binary dataset
+//IMPORTANT: Make sure to change the value of the keyVaultName to the Storage Account in your Resource Group
+.set-or-append  adfMetadata <|
+let pType = "copyDataset";
+let pSubType = "ds_onpremfs_binary";
+let pName = "onpremTripData";
+let insertTime = now();
+let keyVaultName = "your-keyvault-name";
+let configJSON = strcat(@'{"hostDirectory":"\\\\ShirVM\\shareFolder","keyVaultName":"',keyVaultName,'","passwordSecretName":"vmPassword","usernameSecretName":"vmUsername","fileDirectory":"tripdata"}');
+let pConfig = parse_json(configJSON);
+print pType, pSubType, pName, insertTime, pConfig 
+
+//Create the table to log files in process
+.create table adfFileLog(processName:string,fileName:string, insertTime:datetime, processStatus:string)
