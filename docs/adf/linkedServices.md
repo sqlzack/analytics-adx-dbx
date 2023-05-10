@@ -34,14 +34,15 @@ Linked Services will define how we connect to the various integration points fro
 
 5) **IMPORTANT** After you create the linked service, re-open it and un-check and re-check the "Specify dynamic contents in JSON" tick box. If you do not do this your pipelines will fail later on witha message about not being able to find the ls_keyvault Linked Service Reference.
 
-#### Set up Global Parameter
-1) Create a new Global Parameter by following the steps below.
+#### Set up Azure Data Explorer Linked Service
+1) Add a new Linked Service
+2) When prompted, search for and select Azure Data Explorer.
+3) Name the service ls_adx
+4) Create a connection by setting up like the screenshot below (Choose your Subscription + Cluster in steps 5 and 6)
 
-    ![](./images/globalParameters01.png)
+    ![](./images/adxLinkedService.png)
 
-2) Name the Parameter metadataTableStorageName, give it a String type, and put the name of your Storage Account in the Value field.
-
-#### Publish the Linked Services and Global Parameter
+#### Publish the Linked Services
 1) Click the Publish button in Azure Data Factory to deploy the Linked Services and Global Parameters.
 
     ![](.images/../images/linkedServices05.png)
