@@ -38,12 +38,13 @@ ___
 4) __VM:__ [Set up Docker container for Streaming dataset](./docs/shirvm/streamingSetUp.md)
 5) __VM:__ [Create Self Hosted Integration Runtime service for Batch dataset](./docs/shirvm/batchSetUp.md)
 6) __ADLS:__ [Prepare storage for ADF and ADX](./docs/adls/setUp.md)
-7) __ADF:__ [Set up Linked Services and Global Parameters](./docs/adf/linkedServices.md)
-8) __ADF/ADLS:__ [Import Pipelines and Create Metadata Control Table]()
-9) __ADX:__ Set up Ingestion Streams
-10) __ADX:__ Set up Continuous Export to ADLS
-11) __Databricks:__ Set up connection to Raw storage in Azure Databricks Unity Catalog
-12) __Databricks:__ Create a notebook to bring data to the Bronze layer
-13) __Databricks:__ Create SQL Scripts to bring data through the Silver and Gold layers
-14) __Databricks:__ Create a Workflow to Automate Medallion load
-15) 
+7) __ADX:__[Set up ADX for ADF/Ingestion](./docs/adx/setUp.md)
+8) __ADF:__ [Set up Linked Services and Global Parameters](./docs/adf/linkedServices.md)
+9) __ADF/ADLS:__ [Import Pipelines and Create Metadata Control Table]()
+10) __ADX:__ Set up Ingestion Streams
+11) __ADX:__ Set up Continuous Export to ADLS
+12) __Databricks:__ Set up connection to Raw storage in Azure Databricks Unity Catalog
+13) __Databricks:__ Create a notebook to bring data to the Bronze layer
+14) __Databricks:__ Create SQL Scripts to bring data through the Silver and Gold layers
+15) __Databricks:__ Create a Workflow to Automate Medallion load
+16) 

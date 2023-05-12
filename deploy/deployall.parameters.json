@@ -32,6 +32,9 @@
     "logicAppDeleteBastionName": {
       "value": "az-lakehouse-la-deleteBastion"
     },
+    "logicAppStopKustoName": {
+      "value": "az-lakehouse-la-stopKusto"
+    },
     "storageAccountName": {
       "value": "azlakehousesa20230418"
     },

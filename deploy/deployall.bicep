@@ -38,6 +38,9 @@ param logicAppCreateBastionName string
 @description('Name of the Logic App used to delete Bastion Host. Resource Group Unique. Alphanumerics, hyphens, underscores, periods, and parenthesis.')
 param logicAppDeleteBastionName string
 
+@description('Name of the Logic App used to pause Azure Data Explorer. Resource Group Unique. Alphanumerics, hyphens, underscores, periods, and parenthesis.')
+param logicAppStopKustoName string
+
 // Storage Account Parameters
 @description('Name of Primary Storage Account used to store data. Global Azure Unique. 3-24 Lowercase letters and numbers.')
 param storageAccountName string
@@ -129,6 +132,15 @@ module m_logicAppBastionDelete 'modules/logicApp_deleteBastion.bicep' = {
     bastionName: bastionHostName
     logicAppName: logicAppDeleteBastionName
     location: location
+  }
+}
+
+module m_logicAppStopKusto 'modules/logicApp_stopKusto.bicep' = {
+  name: 'logicApp_stopKusto'
+  params: {
+    location: location
+    logicAppName: logicAppStopKustoName
+    clusterName: dataExplorerResourceName
   }
 }
 
